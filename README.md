@@ -6,7 +6,7 @@ Create and code an original web-based  game using with uploaded graphics as "car
 Number of players (3 - 6)
 Objective: Score the most overall points to win by collecting sneakers, sets, and playing action cards
 Board displays 7 sneakers with a new set of 7 drawn each turn for a total of 20 rounds
-TBC
+To be continued...
 ```    
 ### Actions rounds 
 ```
@@ -22,24 +22,8 @@ display statistical time series of action cards
 
 ### Prerequisites for MVP
 
-
-
 ```
 Scorekeeper App
 Shuffle App
-
-```
-
-### Installing
-
-
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
+To be continued...
 ```
