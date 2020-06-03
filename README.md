@@ -4,9 +4,9 @@ Create and code an original web-based  game using with uploaded graphics as "car
 ### Rules of the game
 ```
 Number of players (3 - 6)
-Objective: Score the most points to win by collecting sneakers and playing action cards
-Players start each round with 5 action cards and each round 7 item cards are drawn
-Board displays 
+Objective: Score the most overall points to win by collecting sneakers, sets, and playing action cards
+Board displays 7 sneakers with a new set of 7 drawn each turn for a total of 20 rounds
+TBC
 ```    
 ### Actions rounds 
 ```
@@ -26,6 +26,8 @@ display statistical time series of action cards
 
 ```
 Scorekeeper App
+Shuffle App
+
 ```
 
 ### Installing
