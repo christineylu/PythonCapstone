@@ -27,7 +27,8 @@ def index():
     title='title = {}'.format(__name__)
     page_name='INDEX PAGE'
     name = 'Ronald'
-    return template.render(title=title, page_name=page_name, name=name)
+    static_style_css = url_for('static', filename='style.css')
+    return template.render(title=title, page_name=page_name, name=name, static_style_css=static_style_css)
 
 @application.route('/hello')
 def hello():
@@ -67,4 +68,4 @@ def show_subpath(subpath):
 # Mainline
 #
 if __name__ == '__main__':
-    application.run()
+    application.run(use_reloader=True, debug=True)

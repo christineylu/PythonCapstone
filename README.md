@@ -1,6 +1,8 @@
 # aws_elastic_beanstalk_flask
 Quick walk-through on how to use AWS Elastic Beanstalk to deliver Python Flask web applications.
 
+Using the AWS Documentation [Deploying a flask application to Elastic Beanstalk](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create-deploy-python-flask.html). Check here for [AWS Pricing on Elastic Beanstalk](https://aws.amazon.com/elasticbeanstalk/pricing/#:~:text=There%20is%20no%20additional%20charge,fees%20and%20no%20upfront%20commitments.)
+
 # Steps
 ## 0
 Create your own virtual Python environment in your app directory
@@ -14,6 +16,7 @@ $ pip freeze > requirements.txt
 $ cd ~/dev
 $ mkdir eb-flask-app
 $ cd eb-flask-app
+$ mkdir .ebextensions
 $ git init
 $ eb init
 $ touch .ebignore
