@@ -10,7 +10,7 @@ Create your own virtual Python environment in your app directory
 $ pip install flask
 $ pip freeze > requirements.txt
 ```
-Install the AWS Elastic Beanstalk CLI by (following the direction in this link.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html)
+Install the AWS Elastic Beanstalk CLI by [following the direction in this link.](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3-install.html)
 
 ## 1
 ```bash
