@@ -68,4 +68,5 @@ def show_subpath(subpath):
 # Mainline
 #
 if __name__ == '__main__':
-    application.run(use_reloader=True, debug=True)
+    application.debug = True
+    application.run()
