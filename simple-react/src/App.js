@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import react_logo from './react-logo.svg';
+import flask_logo from './flask-logo.svg';
 import './App.css';
 
 function App() {
@@ -15,17 +16,15 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+        <img src={react_logo} className="App-logo" alt="react-logo" />
+        <img src={flask_logo} className="App-logo" alt="flask-logo" />
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://github.com/robmarano/aws_elastic_beanstalk_flask"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn how to spin React with Python Flask
         </a>
         <p>The current time is {currentTime}.</p>
       </header>
