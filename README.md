@@ -82,3 +82,10 @@ $ git tag -a "v1.0" -m "First version."
 $ eb deploy -l "eb-flask-app v1.0"
 $ eb open
 ```
+
+## 9
+Thanks to Miguel Grinberg for sharing his insights on how to combine ReactJS with Python Flask. See his two great tutorials
+* [How To Create a React + Flask Project](https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project)
+* [How to Deploy a React + Flask Project](https://blog.miguelgrinberg.com/post/how-to-deploy-a-react--flask-project)
+
+
