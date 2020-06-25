@@ -1,17 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import useInterval from './useInterval';
 import react_logo from './react-logo.svg';
 import flask_logo from './flask-logo.svg';
 import './App.css';
 
-function App() {
-  const [currentTime, setCurrentTime] = useState(0);
+function getRandomColor() {
+  let colorValues = ["red", "blue", "green"];
+  return colorValues[Math.floor(Math.random() * colorValues.length)];
+}
 
-  useEffect(() => {
-    fetch('/api/time').then(res => res.json()).then(data => {
-      setCurrentTime(data.datetime);
-      console.log(currentTime);
-    });
-  }, [currentTime]);
+function App() {
+  const [currentTime, setCurrentTime] = useState('01/01/1970, 00:00:00');
+  const delay = 1000;
+
+  useInterval(() => {
+    fetch('/api/time')
+      .then(response => response.json())
+      .then(data => {
+        setCurrentTime(data.datetime);
+        //console.log(currentTime);
+      });
+  }, delay);
 
   return (
     <div className="App">
@@ -26,7 +35,10 @@ function App() {
         >
           Learn how to spin React with Python Flask
         </a>
-        <p>The current time is {currentTime}.</p>
+        <p>The current time is</p>
+        <div style={{background: `${getRandomColor()}`}}>
+          {currentTime}
+        </div>
       </header>
     </div>
   );
