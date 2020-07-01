@@ -11,14 +11,24 @@ function getRandomColor() {
 
 function App() {
   const [currentTime, setCurrentTime] = useState('01/01/1970, 00:00:00');
-  const delay = 1000;
+  const [currentRandomNumber, setCurrentRandomNumber] = useState('-1');
+  const delay = 1000; // in milliseconds
 
   useInterval(() => {
     fetch('/api/time')
       .then(response => response.json())
       .then(data => {
         setCurrentTime(data.datetime);
-        //console.log(currentTime);
+        console.log(currentTime);
+      });
+  }, delay);
+
+  useInterval(() => {
+    fetch('/random/number')
+      .then(response => response.json())
+      .then(data => {
+        setCurrentRandomNumber(data.random_number);
+        console.log(currentRandomNumber);
       });
   }, delay);
 
@@ -38,6 +48,10 @@ function App() {
         <p>The current time is</p>
         <div style={{background: `${getRandomColor()}`}}>
           {currentTime}
+        </div>
+        <p>The current random number is</p>
+        <div style={{background: `${getRandomColor()}`}}>
+          {currentRandomNumber}
         </div>
       </header>
     </div>
