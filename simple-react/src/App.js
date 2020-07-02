@@ -9,17 +9,31 @@ function getRandomColor() {
   return colorValues[Math.floor(Math.random() * colorValues.length)];
 }
 
+function buttonClicked() {
+  console.log('Button was clicked!')
+  fetch('/random/quote')
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    });
+}
+
 function App() {
   const [currentTime, setCurrentTime] = useState('01/01/1970, 00:00:00');
   const [currentRandomNumber, setCurrentRandomNumber] = useState('-1');
-  const delay = 1000; // in milliseconds
+  const [currentRandomString, setCurrentRandomString] = useState('<null>');
+  const [quoteText, setQuoteText] = useState('To be or not to be.');
+  const [quoteAuthor, setQuoteAuthor] = useState('William Shakespeare');
+
+  const delay = 15000; // in milliseconds
+  const quoteDelay = 15000; // in milliseconds
 
   useInterval(() => {
     fetch('/api/time')
       .then(response => response.json())
       .then(data => {
         setCurrentTime(data.datetime);
-        console.log(currentTime);
+        // console.log(currentTime);
       });
   }, delay);
 
@@ -28,9 +42,29 @@ function App() {
       .then(response => response.json())
       .then(data => {
         setCurrentRandomNumber(data.random_number);
-        console.log(currentRandomNumber);
+        // console.log(currentRandomNumber);
       });
   }, delay);
+
+  useInterval(() => {
+    fetch('/random/string')
+      .then(response => response.json())
+      .then(data => {
+        setCurrentRandomString(data.random_string);
+        // console.log(currentRandomString);
+      });
+  }, delay);
+
+    useInterval(() => {
+    fetch('/random/quote')
+      .then(response => response.json())
+      .then(data => {
+        setQuoteText(data.random_quote);
+        setQuoteAuthor(data.quote_author)
+        // console.log(quoteText);
+        // console.log(quoteAuthor)
+      });
+  }, quoteDelay);
 
   return (
     <div className="App">
@@ -53,6 +87,22 @@ function App() {
         <div style={{background: `${getRandomColor()}`}}>
           {currentRandomNumber}
         </div>
+        <p>The current random string is</p>
+        <div style={{background: `${getRandomColor()}`}}>
+          {currentRandomString}
+        </div>
+        <p>The current quote is</p>
+        <button className="button" onClick={buttonClicked}>Click to Refresh</button>
+        <div>
+          <blockquote>
+          <p>{quoteText}</p>
+          <footer>— <cite>{quoteAuthor}</cite>
+          </footer>
+          </blockquote>
+        </div>
+        <p></p>
+        <p></p>
+        <p></p>
       </header>
     </div>
   );
