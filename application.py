@@ -32,16 +32,24 @@ def generate_random_string():
 
 @application.route('/random/quote')
 def generate_random_quote():
+    quotes = [{'random_quote': 'Yeah we all shine on, like the moon, and the stars, and the sun.', 'quote_author': 'John Lennon'}, {'random_quote': 'I begin with an idea and then it becomes something else.', 'quote_author': 'Pablo Picasso'}, {'random_quote': 'Things do not change. We change.', 'quote_author': 'Henry David Thoreau'}, {'random_quote': 'If you take each challenge one step at a time, with faith in every footstep, your strength and understanding will increase.', 'quote_author': 'James Faust'}, {'random_quote': 'All I can say about life is, Oh God, enjoy it!', 'quote_author':'Bob Newhart'}, {'random_quote': 'A day of worry is more exhausting than a day of work.', 'quote_author':'John Lubbock'}]
+    #print(quotes)
     #quote_api_endpoint = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=jsonp&jsonp=?'
-    quote_api_endpoint = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json'
-    response = requests.get(quote_api_endpoint)
-    pprint(response)
-    if response.ok:
-        data = json.loads(response.content)
-        print(data)
-    quote = response.json()['quoteText']
-    author = response.json()['quoteAuthor']
-    return {'random_quote': quote, 'quote_author': author}
+    #quote_api_endpoint = 'https://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json'
+    #response = requests.get(quote_api_endpoint)
+    #pprint(response)
+    #if response.ok:
+    #    data = json.loads(response.content)
+    #    print(data)
+    #quote = response.json()['quoteText']
+    #author = response.json()['quoteAuthor']
+    #return {'random_quote': quote, 'quote_author': author}
+    position=randint(0,len(quotes)-1)
+    random_quote = quotes[position]
+    print(random_quote)
+    #quote=random_quote['random_quote']
+    #author=random_quote['quote_author']
+    return random_quote
 
 
 @application.route('/')
