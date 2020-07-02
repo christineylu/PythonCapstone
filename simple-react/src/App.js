@@ -9,14 +9,19 @@ function getRandomColor() {
   return colorValues[Math.floor(Math.random() * colorValues.length)];
 }
 
-function buttonClicked() {
-  console.log('Button was clicked!')
-  fetch('/random/quote')
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-    });
-}
+// function buttonClicked() {
+//   console.log('Button was clicked!')
+//   let s;
+//   fetch('/random/quote')
+//     .then(response => response.json())
+//     .then(data => {
+//       s = {quoteText: data.random_quote, quoteAuthor: data.quote_author};
+//       // this.setState({ quoteText: data.random_quote });
+//       // this.setState({ quoteAuthor: data.quote_author });
+//       console.log(data);
+//     });
+//   return(s);
+// }
 
 function App() {
   const [currentTime, setCurrentTime] = useState('01/01/1970, 00:00:00');
@@ -25,46 +30,73 @@ function App() {
   const [quoteText, setQuoteText] = useState('To be or not to be.');
   const [quoteAuthor, setQuoteAuthor] = useState('William Shakespeare');
 
-  const delay = 15000; // in milliseconds
-  const quoteDelay = 15000; // in milliseconds
+  const delay = 5000; // in milliseconds
+  const quoteDelay = 3000; // in milliseconds
 
-  useInterval(() => {
-    fetch('/api/time')
-      .then(response => response.json())
-      .then(data => {
-        setCurrentTime(data.datetime);
-        // console.log(currentTime);
-      });
-  }, delay);
-
-  useInterval(() => {
-    fetch('/random/number')
-      .then(response => response.json())
-      .then(data => {
-        setCurrentRandomNumber(data.random_number);
-        // console.log(currentRandomNumber);
-      });
-  }, delay);
-
-  useInterval(() => {
-    fetch('/random/string')
-      .then(response => response.json())
-      .then(data => {
-        setCurrentRandomString(data.random_string);
-        // console.log(currentRandomString);
-      });
-  }, delay);
-
-    useInterval(() => {
+  App.refreshQuote = () => {
+    console.log("Refreshing ... quote ...");
     fetch('/random/quote')
       .then(response => response.json())
       .then(data => {
         setQuoteText(data.random_quote);
-        setQuoteAuthor(data.quote_author)
-        // console.log(quoteText);
-        // console.log(quoteAuthor)
-      });
+        setQuoteAuthor(data.quote_author);
+        console.log(data);
+    });
+    console.log("Refreshed quote.");  
+  }
+  useInterval(() => {
+    App.refreshQuote();
   }, quoteDelay);
+
+  App.refreshTime = () => {
+    console.log("Refreshing ... time ...");
+    fetch('/api/time')
+      .then(response => response.json())
+      .then(data => {
+        setCurrentTime(data.datetime);
+        console.log(data);
+    });
+    console.log("Refreshed time.");  
+  }
+  useInterval(() => {
+    App.refreshTime();
+  }, delay);
+
+  App.refreshRandomNumber = () => {
+    console.log("Refreshing ... random number ...");
+    fetch('/random/number')
+      .then(response => response.json())
+      .then(data => {
+        setCurrentRandomNumber(data.random_number);
+        console.log(data);
+    });
+    console.log("Refreshed random number.");  
+  }
+  useInterval(() => {
+    App.refreshRandomNumber();
+  }, delay);
+
+  App.refreshRandomString = () => {
+    console.log("Refreshing ... random string ...");
+    fetch('/random/string')
+      .then(response => response.json())
+      .then(data => {
+        setCurrentRandomString(data.random_string);
+        console.log(data);
+    });
+    console.log("Refreshed random string.");  
+  }
+  useInterval(() => {
+    App.refreshRandomString();
+  }, delay);
+
+  App.buttonClicked = () => {
+    console.log('Button was clicked!');
+    App.refreshTime();
+    App.refreshRandomNumber();
+    App.refreshRandomString();
+    App.refreshQuote();
+  }
 
   return (
     <div className="App">
@@ -79,6 +111,7 @@ function App() {
         >
           Learn how to spin React with Python Flask
         </a>
+        <button className="button" onClick={App.buttonClicked}>Click to Refresh</button>
         <p>The current time is</p>
         <div style={{background: `${getRandomColor()}`}}>
           {currentTime}
@@ -92,7 +125,6 @@ function App() {
           {currentRandomString}
         </div>
         <p>The current quote is</p>
-        <button className="button" onClick={buttonClicked}>Click to Refresh</button>
         <div>
           <blockquote>
           <p>{quoteText}</p>
