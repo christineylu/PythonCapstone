@@ -6,5 +6,3 @@
 * Number of players (2) 
 * Objective: Face off against a fellow sneakerhead to see who chooses the best kicks to bring to the table. If your score is better than your opponents, you win. 
 
-
-Edit: 
