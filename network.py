@@ -11,7 +11,7 @@ class Network:
         # self.server = "127.0.0.1"
         # self.server = "192.168.1.17"
         # self.server = "192.168.1.17"
-        self.port = 5555
+        self.port = 5556
         self.addr = (self.server, self.port)
         self.p = self.connect()
         print(self.p)
