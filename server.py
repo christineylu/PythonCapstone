@@ -2,16 +2,15 @@ import socket
 from _thread import *
 import pickle
 from game import Game
+'''Attempted to make this usable from any local server but kept getting an error'''
 # from multiprocessing.connection import Listener
-#
-# PORT = 1234
-# server_sock = Listener(('localhost', PORT))
-# con = server_sock.accept()
-#
-# unpickled_data = con.recv()
+# server_sock = Listener(('localhost', port))
+# conn = server_sock.accept()
+# unpickled_data = conn.recv()
 
 server = "192.168.1.17"
 port = 5555
+
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 

@@ -1,5 +1,7 @@
-import socket
-import pickle
+import socket, pickle
+'''Attempted to make this usable from any local server but kept getting an error'''
+# from multiprocessing.connection import Client
+# client = Client(('localhost', 1234))
 
 class Network:
     def __init__(self):
