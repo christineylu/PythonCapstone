@@ -88,21 +88,60 @@ class Collection(object):
         return random.sample(self.deck, n)
 
 # '''Associate image dictionary to each card value type'''
-# def create_images():
+# def create_images_Money():
 #     """create all card images as a card_name:image_object dictionary"""
-#     Collection = Card()
+#     Collection = Card(:15)
 #     image_dict = {}
 #     for card in Collection:
 #         # all images have filenames that match the card_list names + extension .gif
 #         image_dict[card] = tk.PhotoImage(file=image_dir+card+".gif")
 #         #print image_dir+card+".gif"  # test
 #     return image_dict
-# image_dir = "/Users/christinelu/Desktop/nyu_capstone/aws_elastic_beanstalk_flask/PythonCapstone/static/"
-#
-# '''load card images into a dictionary'''
-# image_dict = create_images()
-# #print image_dict  # test
-#
+# image_dir = "/Users/christinelu/Desktop/nyu_capstone/aws_elastic_beanstalk_flask/PythonCapstone/static/Money"
+## def create_images_Diamond():
+#     """create all card images as a card_name:image_object dictionary"""
+#     Collection = Card(:15)
+#     image_dict = {}
+#     for card in Collection:
+#         # all images have filenames that match the card_list names + extension .gif
+#         image_dict[card] = tk.PhotoImage(file=image_dir+card+".gif")
+#         #print image_dir+card+".gif"  # test
+#     return image_dict
+# image_dir = "/Users/christinelu/Desktop/nyu_capstone/aws_elastic_beanstalk_flask/PythonCapstone/static/Diamond"
+# '''Segmenting the images to the suit of card'''
+## def create_images_100():
+#     """create all card images as a card_name:image_object dictionary"""
+#     Collection = Card(:15)
+#     image_dict = {}
+#     for card in Collection:
+#         # all images have filenames that match the card_list names + extension .gif
+#         image_dict[card] = tk.PhotoImage(file=image_dir+card+".gif")
+#         #print image_dir+card+".gif"  # test
+#     return image_dict
+# image_dir = "/Users/christinelu/Desktop/nyu_capstone/aws_elastic_beanstalk_flask/PythonCapstone/static/100"
+## def create_images_Fire():
+#     """create all card images as a card_name:image_object dictionary"""
+#     Collection = Card(:15)
+#     image_dict = {}
+#     for card in Collection:
+#         # all images have filenames that match the card_list names + extension .gif
+#         image_dict[card] = tk.PhotoImage(file=image_dir+card+".gif")
+#         #print image_dir+card+".gif"  # test
+#     return image_dict
+# image_dir = "/Users/christinelu/Desktop/nyu_capstone/aws_elastic_beanstalk_flask/PythonCapstone/static/Fire"
+# '''load all card images into a dictionary'''
+# image_dict = create_images_Money()
+# image_dict.update(create_images_Diamond())
+# image_dict.update(create_images_Fire())
+# image_dict.update(create_images_100())
+# #test output
+# print image_dict
+# '''making a canvas to upload images'''
+# width1 = 5 * photo1.width() + 100
+# height1 = photo1.height() + 20
+# canvas1 = tk.Canvas(width=width1, height=height1)
+# canvas1.pack()
+# '''Run Tinker'''
 # root.mainloop()
 # # Mainline
 
