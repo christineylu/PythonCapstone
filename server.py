@@ -2,22 +2,28 @@ import socket
 from _thread import *
 import pickle
 from game import Game
-'''Attempted to make this usable from any local server but kept getting an error'''
+'''Attempted to make this usable from any server but kept getting an error'''
 # from multiprocessing.connection import Listener
 # server_sock = Listener(('localhost', port))
 # conn = server_sock.accept()
 # unpickled_data = conn.recv()
-
-server = "192.168.1.17"
-port = 5555
-
-
+# server = "127.0.0.1"
+# server = "192.168.1.17"
+server = "0.0.0.0"
+# port = 5555
+# Local Server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-try:
-    s.bind((server, port))
-except socket.error as e:
-    str(e)
+# server = ''
+port = 5555
+server_ip = socket.gethostbyname(server)
+
+
+
+# try:
+#     s.bind((server, port))
+# except socket.error as e:
+#     str(e)
 
 s.listen(2)
 print("Waiting for a connection, Server Started")
