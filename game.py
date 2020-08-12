@@ -1,4 +1,3 @@
-
 '''Game play to link it together'''
 class Game:
     def __init__(self, id):

@@ -1,10 +1,4 @@
 from flask import Flask, render_template
-import logging
-from datetime import datetime
-from random import randint
-import requests
-import json
-from pprint import pprint
 import tkinter as tk
 
 
