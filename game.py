@@ -1,4 +1,4 @@
-'''Game play to link it together'''
+'''Game play to link it together - 2 player'''
 class Game:
     def __init__(self, id):
         self.p1Went = False

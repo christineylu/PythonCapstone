@@ -1,38 +1,14 @@
 import pygame
 from PythonCapstone.network import Network
 '''Tying value to cards for ranking'''
-class Card(object):
-    FACES = {10: 'Jack', 11: 'Queen', 12: 'King', 13: 'Ace', 14: 'Goat'}
+def create_cards():
+    suits = ['FYE', 'DMD', 'MNY', '100']
+    return [suit + "_" + rank for suit in suits for rank in "A23456789TJQK" ]
 
-    def __init__(self, rank, suit):
-        self.suit = suit
-        self.rank = rank
+def deal(self, n):
+    random.shuffle(create_cards())
 
-    def __str__(self):
-        value = self.FACES.get(self.rank, self.rank)
-        return "{0} of {1}".format(value, self.suit)
-
-    def __lt__(self, other):
-        return self.rank < other.rank
-
-
-'''Associating the cards with different sneaker types'''
-import random
-class Collection(object):
-    def __init__(self, ranks=None, suits=None):
-        if ranks is None:
-            ranks = range(2, 15)
-        if suits is None:
-            suits = ['Fire', 'Diamond', 'Money', 'Hundred']
-        self.deck = []
-        for r in ranks:
-            for s in suits:
-                self.deck.append(Card(r, s))
-
-    def deal(self, n):
-        random.shuffle(Card)
-
-        return random.sample(self.deck, n)
+    return random.sample(self.deck, n)
 
 class Button(Collection):
     def draw(self, win):
